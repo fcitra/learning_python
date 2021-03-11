@@ -1,0 +1,39 @@
+class RegularPolygon:
+  def __init__ (self, side_length, no_of_sides):
+    self.no_of_sides = no_of_sides
+    self.side_length = side_length
+  
+  def perimeter(self):
+    peri = self.no_of_sides*self.side_length
+    return (peri)
+  
+  def interior_angle(self):
+    int_angle = (self.no_of_sides - 2) * 180 / (self.no_of_sides)
+    return (int_angle)
+  
+  def exterior_angle(self):
+    ext_angle = 360/self.no_of_sides
+    return (ext_angle)
+
+class Square(RegularPolygon):
+  
+  """Setting attribute jumlah sisi = 4 khusus untuk Square"""
+
+  def __init__ (self, side_length):
+    super().__init__(side_length, 4)
+
+  def area(self):
+    luas_bujursangkar = self.side_length**2
+    return luas_bujursangkar
+
+  def diagonal(self):
+    panjang_diagonal = self.side_length*(2**(1/2))
+    return panjang_diagonal
+
+bujursangkar = Square(5)
+
+keliling = bujursangkar.perimeter()
+luas = bujursangkar.area()
+sudut_int = bujursangkar.interior_angle()
+sudut_ext = bujursangkar.exterior_angle()
+diagonal = bujursangkar.diagonal()
