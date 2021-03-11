@@ -1,0 +1,36 @@
+class Square:
+    def __init__ (self,side):
+      self.side = side
+
+    def area (self):
+      luas = self.side**2
+      return (luas)
+    
+    def perimeter(self):
+      keliling = self.side*4
+      return (keliling)
+
+class SquarePyramid(Square):
+    def __init__ (self,side,height):
+      Square.__init__(self,side)
+      self.height = height
+    
+    def volume(self):
+      vol = (1/3)*self.height*self.area()
+      #yang ini belum bener
+      return (vol)
+    
+    def slant_length(self):
+      slant = ((self.side/2)**2 + self.height**2)**(1/2)
+      return (slant)
+    
+    def surface_area(self):
+      luas_muka = self.area() + (1/2)*self.slant_length()*self.perimeter()
+      #yang ini belum bener
+      return (luas_muka)
+
+pyramid = SquarePyramid(10,12)
+volume = pyramid.volume()
+luas = pyramid.surface_area()
+
+print(volume, luas)
