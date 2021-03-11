@@ -1,0 +1,19 @@
+def word_reverse(string):
+    """ Function untuk membagi sebuah string berisi kumpulan kata-kata menjadi kata-kata penyusunnya
+    dan menggabungkannya dengan sequence yang dibalik
+    """
+    
+    tipe = isinstance(string,str) #cek apakah string adalah string
+    if not tipe:
+      hasil = "Input harus berupa string"
+    else: 
+      #cek apakah minimal ada dua buah kata
+      if len(string.split(" ")) < 2:
+        hasil = "Banyak kata minimal dua kata"
+      else:
+      #membagi suatu string menjadi kata-kata
+        hasil = string.split(" ")[::-1]
+        hasil = " ".join(hasil)
+    return hasil  
+    
+print(word_reverse("always deliver more than expected"))
