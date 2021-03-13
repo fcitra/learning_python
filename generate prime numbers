@@ -1,0 +1,28 @@
+#Memunculkan bilangan prima pada urutan tertentu
+
+nterm = 10001 #urutan bilangan prima yang ingin dicari
+n = 1 #sequence/urutan bilangan prima
+p = 3 #batas bilangan prima
+primes = [2] #bilangan prima pertama  
+while n < nterm:
+  prime_check = True 
+  pembagi = 3
+  #bilangan non-prima harus punya faktor di bawah akar kuadratnya
+  maks_pembagi = p**(0.5) + 1
+  while pembagi < maks_pembagi and prime_check:
+    #Pengecekan bilangan dilakukan hanya jika pembagi di bawah akar
+    #kuadrat bilangan yang akan dicari 
+      if p%pembagi == 0: #jika habis dibagi tanpa sisa, maka bukan prima
+        prime_check = False #operasi pembagian dihentikan
+      else:
+        pembagi += 2
+  #Jika p melewati blok di atas maka bilangan tersebut prima
+  #Maka bilangan p dimasukkan dalam list berisi bilangan prima 
+  #n, yang adalah urutan bilangan prima ditambah satu
+  if prime_check:
+      primes += [p]
+      n += 1   
+  p += 2
+  #Pengecekan dilakukan untuk tiap bilangan ganjil setelah 3
+  #Karena bila ditambah 1 akan menjadi bilangan genap yang habis
+  #dibagi dua
